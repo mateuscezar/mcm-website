@@ -1,0 +1,460 @@
+
+/* Estilos para paginação tecnológica */
+.tech-grid-container {
+  position: relative;
+  z-index: 1;
+}
+
+.tech-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(0deg, rgba(46, 169, 255, 0.03) 0px, rgba(46, 169, 255, 0.03) 1px, transparent 1px, transparent 20px),
+                    repeating-linear-gradient(90deg, rgba(46, 169, 255, 0.03) 0px, rgba(46, 169, 255, 0.03) 1px, transparent 1px, transparent 20px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.tech-pagination-controls {
+  position: relative;
+}
+
+.tech-nav-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 1px solid rgba(46, 169, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.tech-nav-button:hover {
+  border-color: rgba(46, 169, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.tech-nav-button .tech-button-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(46, 169, 255, 0.1), rgba(10, 25, 41, 0.5));
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+}
+
+.tech-nav-button:hover .tech-button-bg {
+  transform: scale(1);
+}
+
+.tech-page-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tech-page-link:hover,
+.tech-page-link[data-active="true"] {
+  color: #2EA9FF;
+  transform: translateY(-1px);
+}
+
+.tech-page-link[data-active="true"]::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  height: 2px;
+  width: 10px;
+  background: #2EA9FF;
+  transform: translateX(-50%);
+}
+
+/* Efeito de circuito nos cards */
+.tech-circuit-lines {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10,10 L20,10 L20,20 L30,20 M60,20 L70,20 L70,10 L90,10 M10,30 L20,30 L20,40 M80,40 L90,40 L90,50 M10,60 L10,70 L20,70 M50,70 L60,70 L60,80 L70,80 M80,80 L90,80 L90,90 L70,90 M30,90 L20,90 L20,80 M40,30 L50,30 L50,40 L40,40 Z' fill='none' stroke='%232EA9FF' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+.tech-border-effect {
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  opacity: 0;
+  border-radius: 0.5rem;
+}
+
+.project-card:hover .tech-border-effect {
+  border-color: rgba(46, 169, 255, 0.3);
+  box-shadow: 0 0 15px rgba(46, 169, 255, 0.1);
+  opacity: 1;
+}
+
+/* Efeito de partículas tecnológicas */
+.tech-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.tech-particles::before,
+.tech-particles::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(46, 169, 255, 0.5);
+  box-shadow: 0 0 10px 2px rgba(46, 169, 255, 0.3);
+  border-radius: 50%;
+  animation: float 15s infinite linear;
+  opacity: 0.2;
+}
+
+.tech-particles::before {
+  top: 20%;
+  left: 10%;
+}
+
+.tech-particles::after {
+  top: 70%;
+  right: 15%;
+  width: 5px;
+  height: 5px;
+  animation-duration: 25s;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100px, -50px);
+  }
+  50% {
+    transform: translate(200px, 50px);
+  }
+  75% {
+    transform: translate(100px, 100px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Estilos para Modal */
+.project-modal {
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: linear-gradient(135deg, rgba(10, 25, 41, 0.9), rgba(10, 25, 41, 0.95));
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(46, 169, 255, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.title-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(46, 169, 255, 0.7), transparent);
+}
+
+.carousel-image-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(46, 169, 255, 0.2);
+}
+
+.carousel-image {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+/* Estilos para o menu mobile tech */
+.drawer-tech-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Novo fundo tecnológico pulsante para o menu */
+.tech-circuit-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10,10 L20,10 L20,20 L30,20 M60,20 L70,20 L70,10 L90,10 M10,30 L20,30 L20,40 M80,40 L90,40 L90,50 M10,60 L10,70 L20,70 M50,70 L60,70 L60,80 L70,80 M80,80 L90,80 L90,90 L70,90 M30,90 L20,90 L20,80 M40,30 L50,30 L50,40 L40,40 Z' fill='none' stroke='%232EA9FF' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  opacity: 0.1;
+}
+
+.tech-grid {
+  background-image: 
+    linear-gradient(rgba(46, 169, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 169, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.tech-menu-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.tech-menu-button:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(46, 169, 255, 0.5);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.tech-menu-button:hover:before {
+  transform: scale(10);
+  opacity: 0.2;
+}
+
+.tech-mobile-nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-mobile-nav-link:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: rgba(46, 169, 255, 0.3);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: top;
+}
+
+.tech-mobile-nav-link:hover {
+  background: linear-gradient(90deg, rgba(46, 169, 255, 0.1), transparent);
+}
+
+.tech-mobile-nav-link:hover:before {
+  transform: scaleY(1);
+}
+
+.tech-mobile-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-mobile-cta:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+}
+
+.tech-mobile-cta:hover:after {
+  transform: translateX(100%);
+}
+
+.tech-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Efeito de pulsação para os pontos tecnológicos */
+.tech-pulse-point {
+  animation: pulse-point 3s infinite;
+}
+
+.tech-line {
+  animation: pulse-opacity 4s infinite;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animation-delay-700 {
+  animation-delay: 0.7s;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes pulse-point {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-opacity {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* Botão de fechar do menu mobile */
+.tech-close-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-close-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(46, 169, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tech-close-button:hover::before {
+  opacity: 1;
+}
+
+/* Novos estilos para o modo de visualização de projetos */
+.tech-view-mode-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: rgba(46, 169, 255, 0.1);
+  border: 1px solid rgba(46, 169, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.tech-view-mode-btn:hover {
+  background-color: rgba(46, 169, 255, 0.2);
+  border-color: rgba(46, 169, 255, 0.3);
+  color: white;
+}
+
+.tech-view-active {
+  background-color: rgba(46, 169, 255, 0.3);
+  border-color: rgba(46, 169, 255, 0.4);
+  color: white;
+  box-shadow: 0 0 10px rgba(46, 169, 255, 0.2);
+}
+
+/* Estilos para carrossel de projetos */
+.tech-carousel {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.tech-progress-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.tech-progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(46, 169, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tech-progress-dot.active {
+  background-color: rgba(46, 169, 255, 0.8);
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(46, 169, 255, 0.6);
+}
+
+/* Barra de progresso do autoplay */
+.tech-autoplay-progress {
+  width: 100%;
+  background-color: rgba(46, 169, 255, 0.3);
+  animation: autoplay-progress 5s linear 1;
+  transform-origin: left;
+}
+
+@keyframes autoplay-progress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Ajuste para o espaçamento da modal */
+.project-modal .carousel-image-container + div {
+  margin-top: 24px;
+}
+
+/* Estilo das tags dos projetos */
+.tech-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(46, 169, 255, 0.1);
+  border: 1px solid rgba(46, 169, 255, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background-color: rgba(46, 169, 255, 0.2);
+  transform: translateY(-1px);
+}
